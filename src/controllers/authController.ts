@@ -7,7 +7,6 @@ const signUp = async (request: FastifyRequest, reply: FastifyReply) => {
   const { email, password } = request.body as { email: string; password: string };
 
   try {
-    // The beforeCreate hook in the User model will hash the password.
     const user = await User.create({ email, password });
     return reply.code(201).send({ message: 'User created', userId: user.id });
   } catch (error) {
