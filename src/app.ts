@@ -2,6 +2,7 @@ import fastify, { FastifyRegisterOptions } from 'fastify';
 import dotenv from 'dotenv';
 import { sequelize, testConnection } from './db/database';
 import fastifyJwt from '@fastify/jwt';
+import authRoutes from './routes/authRoutes';
 
 dotenv.config();
 
@@ -28,11 +29,12 @@ app.decorate('authenticate', async (request: any, reply: any) => {
   }
 });
 
+app.register(authRoutes, { prefix: '/auth' });
 
 const start = async () => {
   try {
     await testConnection();
-    
+
     await sequelize.sync();
     await app.listen({ port: parseInt(process.env.PORT || '3000'), host: '0.0.0.0' });
     console.log(`Server listening on port ${process.env.PORT}`);
