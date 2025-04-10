@@ -3,6 +3,9 @@ import dotenv from 'dotenv';
 import { sequelize, testConnection } from './db/database';
 import fastifyJwt from '@fastify/jwt';
 import authRoutes from './routes/authRoutes';
+import productRoutes from './routes/productRoutes';
+import salesRoutes from './routes/salesRoutes';
+import upsellRoutes from './routes/upsellRoutes';
 
 dotenv.config();
 
@@ -17,7 +20,6 @@ app.register(fastifyJwt, {
   }
 });
 
-// Add better error handling to the authenticate decorator
 app.decorate('authenticate', async (request: any, reply: any) => {
   try {
     await request.jwtVerify();
@@ -30,6 +32,9 @@ app.decorate('authenticate', async (request: any, reply: any) => {
 });
 
 app.register(authRoutes, { prefix: '/auth' });
+app.register(productRoutes, { prefix: '/products' });
+app.register(upsellRoutes, { prefix: '/upsells' });
+app.register(salesRoutes, { prefix: '/sales' });
 
 const start = async () => {
   try {
