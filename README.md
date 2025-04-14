@@ -4,7 +4,7 @@ A backend API for managing user authentication, products, upsell products, and s
 
 ---
 
-## 🚀 Features
+## Features
 
 - ✅ User authentication (signup/login with JWT)
 - ✅ CRUD for products
@@ -25,7 +25,7 @@ A backend API for managing user authentication, products, upsell products, and s
 
 ---
 
-## 📦 Setup Instructions
+## Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -61,17 +61,17 @@ npm run dev
 Server should start on:
 📍 http://localhost:5000
 
-🧪 API Testing (Postman / Insomnia)
+API Testing (Postman / Insomnia)
 Use the provided postman_collection.json file to import and test endpoints.
 
 Ensure to log in and attach the JWT token in the Authorization header as Bearer <token> for protected routes.
 
-🔐 Auth Endpoints
+Auth Endpoints
 Method	Endpoint	Description
 POST	/auth/signup	Register user
 POST	/auth/login	Login & get token
 
-📦 Product Endpoints
+Product Endpoints
 Method	Endpoint	Description
 POST	/products	Create product
 GET	/products	List all products
@@ -87,7 +87,7 @@ GET	/upsells/product/:productId	Get upsells for specific product
 PUT	/upsells/:id	Update upsell link
 DELETE	/upsells/:id	Delete upsell link
 
-💰 Sales Endpoints
+Sales Endpoints
 Method	Endpoint	Description
 POST	/sales	Create sale transaction
 GET	/sales	List all sales
@@ -95,5 +95,5 @@ GET	/sales/:id	Get sale transaction by ID
 PUT	/sales/:id	Update sale
 DELETE	/sales/:id	Delete sale
 
-👨‍💻 Author
+Author
 Kabelo Maloa
